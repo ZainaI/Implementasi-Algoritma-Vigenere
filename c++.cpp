@@ -78,3 +78,114 @@ int main()
         return 0;
 
      }
+	 else if(a==2)
+     {
+         fileOri.getkey();
+
+         cout << "Masukkan nama file: ";
+         cin >> namaFile;
+
+         strcat(namaFile,".txt");
+		 
+        enc(fileOri);
+
+        getch();
+
+        return 0;
+
+     }
+     else if(a==3)
+     {
+         fileOri.getkey();
+
+         cout << "Masukkan nama file: ";
+         cin >> namaFile;
+
+         strcat(namaFile,".txt");
+
+        dec(fileOri);
+
+        getch();
+
+        return 0;
+
+     }
+
+     else if (a==4)
+     {
+         return 0;
+     }
+	 else
+	 {
+		 return main();
+	 }
+}
+
+void enc(lock file)
+{
+    char encnamaFile[50] = "enc_";
+    strcat(encnamaFile,namaFile);
+
+    int n;
+
+    srand(file.key);
+
+    ifstream OutputData(namaFile);
+
+    char ch[50] = "";
+
+    ofstream InputData(encnamaFile);
+
+    OutputData.getline(ch,49);
+    do
+    {
+        n= 1 + rand()%9;
+        for(int i=0; i<strlen(ch); i++)
+        {
+            ch[i] = ch[i] + n;
+        }
+        InputData << ch;
+    }
+    while(OutputData.getline(ch,49));
+
+    OutputData.close();
+    InputData.close();
+
+    cout << "File berhasil di Enkripsi"  << endl;
+    cout << "Teks hasil enkripsi disimpan ke dalam: " << encnamaFile << endl;
+}
+
+void dec(lock file)
+{
+    char decnamaFile[50] = "dec_";
+    strcat(decnamaFile,namaFile);
+
+    int m;
+
+    srand(file.key);
+
+    ifstream OutputData(namaFile);
+
+    char ch[50] = "";
+
+    ofstream InputData(decnamaFile);
+
+    OutputData.getline(ch,49);
+    do
+    {
+        m= 1 + rand()%9;
+        for(int i=0; i<strlen(ch); i++)
+        {
+            ch[i] = ch[i] - m;
+        }
+        InputData << ch;
+    }
+    while(OutputData.getline(ch,49));
+
+    OutputData.close();
+    InputData.close();
+
+    cout << "File berhasil di deskripsikan" << endl;
+    cout << "Teks hasil deskripsi disimpan ke dalam: " << decnamaFile << endl;
+}
+
