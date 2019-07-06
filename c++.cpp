@@ -139,7 +139,7 @@ void enc(lock file)
     OutputData.getline(ch,49);
     do
     {
-        n= 1 + rand()%9;
+        n= 1 + rand()%1;
         for(int i=0; i<strlen(ch); i++)
         {
             ch[i] = ch[i] + n;
@@ -173,7 +173,7 @@ void dec(lock file)
     OutputData.getline(ch,49);
     do
     {
-        m= 1 + rand()%9;
+        m= 1 + rand()%1;
         for(int i=0; i<strlen(ch); i++)
         {
             ch[i] = ch[i] - m;
