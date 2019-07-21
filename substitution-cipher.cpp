@@ -64,9 +64,10 @@ int main()
         ofstream InputData(namaFile);
 
         cin >> c;
-		
-		InputData << c;
-		InputData.close();
+	
+	InputData << c;
+	
+	InputData.close();
 
         enc(fileOri);
 
@@ -170,7 +171,7 @@ void dec(lock file)
     OutputData.getline(ch,49);
     do
     {
-        m= 1 + rand()%9;
+        m= 1 + rand()%5;
         for(int i=0; i<strlen(ch); i++)
         {
             ch[i] = ch[i] - m;
