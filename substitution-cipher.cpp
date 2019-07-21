@@ -1,6 +1,5 @@
 #include<iostream>
-#include<conio.h> 
-#include<string> 
+#include<conio.h>
 #include<string.h>
 #include<fstream>
 #include<cstdlib>
@@ -64,12 +63,10 @@ int main()
 
         ofstream InputData(namaFile);
 
-        while(cin >> c)
-        {
-            InputData << c << " ";
-        }
-
-        InputData.close();
+        cin >> c;
+		
+		InputData << c;
+		InputData.close();
 
         enc(fileOri);
 
@@ -139,7 +136,7 @@ void enc(lock file)
     OutputData.getline(ch,49);
     do
     {
-        n= 1 + rand()%1;
+        n= 1 + rand()%9;
         for(int i=0; i<strlen(ch); i++)
         {
             ch[i] = ch[i] + n;
@@ -173,7 +170,7 @@ void dec(lock file)
     OutputData.getline(ch,49);
     do
     {
-        m= 1 + rand()%1;
+        m= 1 + rand()%9;
         for(int i=0; i<strlen(ch); i++)
         {
             ch[i] = ch[i] - m;
@@ -188,4 +185,3 @@ void dec(lock file)
     cout << "File berhasil di deskripsikan" << endl;
     cout << "Teks hasil deskripsi disimpan ke dalam: " << decnamaFile << endl;
 }
-
